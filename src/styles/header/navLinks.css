@@ -1,0 +1,9 @@
+.list-ul {
+    display: flex;
+    list-style-type: none;
+    gap: 4rem;
+}
+
+.list-item {
+    color: white;
+}
