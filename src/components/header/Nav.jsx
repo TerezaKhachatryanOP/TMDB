@@ -1,4 +1,4 @@
-import "../../styles/nav.css"
+import "../../styles/header/nav.css"
 import NavLinks from "./NavLinks"
 
 const navItems = [

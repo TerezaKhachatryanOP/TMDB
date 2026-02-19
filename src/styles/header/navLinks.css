@@ -2,8 +2,12 @@
     display: flex;
     list-style-type: none;
     gap: 4rem;
+    margin: 0;          
+    padding: 0;  
+    flex-wrap: wrap;
 }
 
 .list-item {
     color: white;
+    text-decoration: none;
 }

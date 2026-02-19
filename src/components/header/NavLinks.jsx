@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../../styles/NavLinks.css"
+import "../../styles/header/navLinks.css"
 
 export default function NavLinks({ navItems }) {
     return (
