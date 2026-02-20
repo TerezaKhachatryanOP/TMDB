@@ -10,10 +10,21 @@ export default function NavLinks() {
     <div className="links-container">
       <ul className="list-ul">
         {navItems.map((item) => (
-          <li key={item.label}>
+          <li key={item.label} className="nav-item">
             <Link className="list-item" to={item.href} key={item.label}>
               {item.label}
             </Link>
+            {item.subcategories && (
+              <ul className="sub-menu">
+                {item.subcategories.map((sub) => (
+                  <li key={sub}>
+                    <Link to="#" className="sub-item">
+                      {sub}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>

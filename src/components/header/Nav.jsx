@@ -2,7 +2,7 @@ import "../../styles/header/nav.css";
 import NavActions from "../../styles/header/NavActions";
 import NavLinks from "./NavLinks";
 
-export default function Nav() {
+export default function Nav({ showNavSearch, setShowNavSearch }) {
   return (
     <>
       <div className="nav-wrapper">
@@ -19,7 +19,10 @@ export default function Nav() {
         </picture>
         <NavLinks/>
       </div>
-      <NavActions />
+      <NavActions 
+        showNavSearch={showNavSearch} 
+        setShowNavSearch={setShowNavSearch}
+      />
     </>
   );
 }

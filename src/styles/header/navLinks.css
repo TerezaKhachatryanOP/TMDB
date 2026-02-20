@@ -3,8 +3,39 @@
 }
 
 .list-item {
+  position: relative;
   color: white;
   text-decoration: none;
+}
+
+.nav-item:hover .sub-menu {
+  display: flex;
+  position: absolute;
+  background: white;
+  flex-direction: column;
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 0.4rem;
+  border: 0.063rem solid rgb(227, 227, 227);
+}
+
+.sub-menu {
+  display: none;
+  min-width: 9rem;
+  padding: 0;
+  margin: 0;
+}
+
+.sub-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.sub-item:hover {
+  background: #dee2e6;
 }
 
 @media (min-width: 66.25rem) {
