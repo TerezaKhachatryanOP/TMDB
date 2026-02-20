@@ -2,14 +2,6 @@ import "../../styles/header/nav.css";
 import NavActions from "../../styles/header/NavActions";
 import NavLinks from "./NavLinks";
 
-const navItems = [
-  { label: "Movies", href: "#" },
-  { label: "TV Shows", href: "#" },
-  { label: "People", href: "#" },
-  { label: "Awards", href: "#" },
-  { label: "More", href: "#" },
-];
-
 export default function Nav() {
   return (
     <>
@@ -25,7 +17,7 @@ export default function Nav() {
             className="logo"
           />
         </picture>
-        <NavLinks navItems={navItems} />
+        <NavLinks/>
       </div>
       <NavActions />
     </>
