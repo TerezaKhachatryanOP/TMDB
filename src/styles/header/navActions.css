@@ -1,0 +1,27 @@
+.nav-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.desktop-item {
+  display: none;
+}
+
+.nav-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.language {
+  border: 1px solid white;
+  list-style-type: none;
+  color: white;
+  padding: 0.188rem 0.313rem;
+}
+
+@media (min-width: 66.25rem) {
+  .desktop-item {
+    display: flex;
+  }
+}

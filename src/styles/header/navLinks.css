@@ -1,13 +1,19 @@
 .list-ul {
-    display: flex;
-    list-style-type: none;
-    gap: 4rem;
-    margin: 0;          
-    padding: 0;  
-    flex-wrap: wrap;
+  display: none;
 }
 
 .list-item {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 66.25rem) {
+  .list-ul {
+    display: flex;
+    list-style-type: none;
+    gap: 4rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
 }
