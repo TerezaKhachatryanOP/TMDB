@@ -1,4 +1,5 @@
 import "../../styles/footer/footer.css";
+import FooterCopyright from "./FooterCopyright";
 import FooterLinks from "./FooterLinks";
 
 export default function Footer() {
@@ -31,7 +32,8 @@ export default function Footer() {
   ];
 
   return (
-    <div className="footer-container">
+    <div className="footer-wrapper">
+    <div className="footer-main-container">
       <div className="join-wrapper">
         <img
           src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
@@ -48,6 +50,8 @@ export default function Footer() {
           legal={legal}
         />
       </div>
+    </div>
+    <FooterCopyright />
     </div>
   );
 }

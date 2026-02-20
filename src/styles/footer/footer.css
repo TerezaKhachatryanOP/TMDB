@@ -1,4 +1,4 @@
-.footer-container {
+.footer-wrapper {
   background: #032541;
   padding: 2.5rem 1.3rem 0 1.3rem;
 }
@@ -27,8 +27,16 @@
   text-decoration: underline;
 }
 
+.copyright {
+  text-align: center;
+  color: white;
+  font-size: .8rem;
+  padding-bottom: 2.5rem;
+  opacity: .1;
+}
+
 @media (min-width: 66.25rem) {
-  .footer-container {
+  .footer-main-container {
     display: flex;
     justify-content: center;
     gap: 2.5rem;
