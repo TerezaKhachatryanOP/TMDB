@@ -1,12 +1,15 @@
-.mobile-action-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.action-wrapper {
   border: 1px solid #e3e3e3;
   border-radius: 0.375rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 0.875rem 1rem;
   margin-top: 1rem;
+}
+
+.mobile-action-container {
+  padding: 0.875rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .action-container-title {
@@ -19,4 +22,8 @@
   cursor: pointer;
   width: 1rem;
   height: 1rem;
+}
+
+.arrow-bottom {
+  transform: rotate(90deg);
 }
