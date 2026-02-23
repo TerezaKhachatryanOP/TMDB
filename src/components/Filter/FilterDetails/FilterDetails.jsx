@@ -5,7 +5,6 @@ import Language from "../Language/Language.jsx";
 import ReleaseDates from "../ReleaseDates/ReleaseDates.jsx";
 import ShowMe from "../ShowMe/ShowMe.jsx";
 import Slider from "../Slider/UserCoreSlider.jsx";
-import UserScoreSlider from "../Slider/UserCoreSlider.jsx";
 
 export default function FilterDetails() {
   return (
