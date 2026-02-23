@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { getCountries } from "../filterCountries.js";
 import "../../../styles/FilterStyles/countryoptions.css";
+import CountryOptionsFilter from "./CountryOptionsFilter.jsx";
 
 export default function CountryOptions({ show, selectedCountry, onSelect }) {
   const [countries, setCountries] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef();
 
@@ -36,6 +38,10 @@ export default function CountryOptions({ show, selectedCountry, onSelect }) {
 
   const selected = countries.find((c) => c.iso_3166_1 === selectedCountry);
 
+  const filteredCountries = countries.filter((c) =>
+    c.english_name.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   return (
     <div className="custom-dropdown" ref={dropdownRef}>
       <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
@@ -52,7 +58,11 @@ export default function CountryOptions({ show, selectedCountry, onSelect }) {
 
       {isOpen && (
         <div className="dropdown-list">
-          {countries.map((country) => (
+          <CountryOptionsFilter
+            value={searchText}
+            setSearchText={setSearchText}
+          />
+          {filteredCountries.map((country) => (
             <div
               className="dropdown-list-item"
               key={country.iso_3166_1}
@@ -68,6 +78,9 @@ export default function CountryOptions({ show, selectedCountry, onSelect }) {
               {country.english_name}
             </div>
           ))}
+          {filteredCountries.length === 0 && (
+            <div className="dropdown-list-item">No results found</div>
+          )}
         </div>
       )}
     </div>
