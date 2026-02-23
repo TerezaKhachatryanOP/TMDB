@@ -15,23 +15,26 @@ export default function SearchReleases() {
   ];
 
   const [selected, setSelected] = useState([options[0]]);
+  const [selectedCountry, setSelectedCountry] = useState("AM");
 
   const handleChange = (value) => {
     if (value === options[0]) {
       const isCurrentlySelected = selected.includes(options[0]);
+      setSelected(isCurrentlySelected ? options.slice(1) : [options[0]]);
+      return;
+    }
 
-      if (isCurrentlySelected) {
-        setSelected(options.slice(1));
-      } else {
-        setSelected([options[0]]);
-      }
-
+    if (value === options[1]) {
+      setSelected((prev) =>
+        prev.includes(options[1])
+          ? prev.filter((item) => item !== options[1])
+          : [...prev, options[1]],
+      );
       return;
     }
 
     setSelected((prev) => {
       const withoutFirst = prev.filter((item) => item !== options[0]);
-
       return withoutFirst.includes(value)
         ? withoutFirst.filter((item) => item !== value)
         : [...withoutFirst, value];
@@ -42,6 +45,9 @@ export default function SearchReleases() {
     selected.length === 1 && selected.includes(options[0]);
 
   const visibleOptions = shouldShowOnlyFirst ? [options[0]] : options;
+
+  const showCountries =
+    !selected.includes(options[1]) && !selected.includes(options[0]);
 
   return (
     <div>
@@ -54,6 +60,12 @@ export default function SearchReleases() {
           onChange={() => handleChange(option)}
         />
       ))}
+
+      <CountryOptions
+        show={showCountries}
+        selectedCountry={selectedCountry}
+        onSelect={(country) => setSelectedCountry(country)}
+      />
     </div>
   );
 }
