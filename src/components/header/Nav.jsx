@@ -8,7 +8,7 @@ export default function Nav({ showNavSearch, setShowNavSearch }) {
       <div className="nav-wrapper">
         <picture>
           <source
-            media="(min-width: 66.25rem)"
+            media="(min-width: 62rem)"
             srcSet="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
           />
           <img

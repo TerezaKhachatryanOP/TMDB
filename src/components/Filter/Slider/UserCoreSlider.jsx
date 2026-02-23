@@ -1,11 +1,13 @@
 import { useState } from "react";
-import "../../../styles/FilterStyles/userCoreSlider.css";
+import "../../../styles/FilterStyles/slider.css";
 
-export default function UserScoreSlider({
+export default function Slider({
+  label,
   min = 0,
   max = 10,
   step = 1,
   defaultValue = 0,
+  variant = "primary",
   onChange,
 }) {
   const [value, setValue] = useState(defaultValue);
@@ -15,24 +17,23 @@ export default function UserScoreSlider({
     setValue(v);
     onChange?.(v);
   };
+
   const ticks = Array.from(
     { length: (max - min) / step + 1 },
-    (_, i) => min + i * step
+    (_, i) => min + i * step,
   );
 
   return (
-    <div className="user-score-container">
-      <h2 className="action-content-header">User Score</h2>
+    <div className="slider-container">
+      <h3 className="action-content-header">{label}</h3>
 
       <div className="slider-wrapper">
         <div className="slider-ticks">
           {ticks.map((t) => (
-            <div
-              key={t}
-              className={`tick ${t === 0 || t === 5 || t === 10 ? "major" : ""}`}
-            />
+            <div key={t} className="tick" />
           ))}
         </div>
+
         <input
           type="range"
           min={min}
@@ -40,12 +41,13 @@ export default function UserScoreSlider({
           step={step}
           value={value}
           onChange={handleChange}
-          className="user-score-range"
+          className={`slider-range slider-${variant}`}
         />
+
         <div className="slider-labels">
-          <span>0</span>
-          <span>5</span>
-          <span>10</span>
+          <span>{min}</span>
+          <span>{Math.floor((min + max) / 2)}</span>
+          <span>{max}</span>
         </div>
       </div>
     </div>

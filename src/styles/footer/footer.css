@@ -35,7 +35,7 @@
   opacity: .1;
 }
 
-@media (min-width: 66.25rem) {
+@media (min-width: 62rem) {
   .footer-main-container {
     display: flex;
     justify-content: center;

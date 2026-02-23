@@ -38,7 +38,7 @@
   background: #dee2e6;
 }
 
-@media (min-width: 66.25rem) {
+@media (min-width: 62rem) {
   .list-ul {
     display: flex;
     list-style-type: none;
