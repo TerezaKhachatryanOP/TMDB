@@ -1,4 +1,4 @@
-import Filter from "./Filter";
+import Filter from "../Filter/Filter.jsx";
 import MainSearch from "./MainSearch";
 import Sort from "./Sort";
 

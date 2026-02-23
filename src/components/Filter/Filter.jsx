@@ -1,6 +1,7 @@
 import { useState } from "react";
 import arrowIcon from "../../assets/arrow.png";
 import "../../styles/mainStyles/actionContainer.css";
+import FilterDetails from "./FilterDetails/FilterDetails";
 
 export default function Filter() {
   const [showDetails, setShowDetails] = useState(false);
@@ -24,6 +25,7 @@ export default function Filter() {
           />
         )}
       </div>
+      {showDetails && <FilterDetails />}
     </div>
   );
 }
