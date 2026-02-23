@@ -11,7 +11,7 @@
 .nav-actions-wrapper {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: .5rem;
 }
 
 .language {

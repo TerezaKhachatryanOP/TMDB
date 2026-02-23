@@ -10,7 +10,7 @@
   right: 0;
   border: 1px solid #ccc;
   background-color: #fff;
-  max-height: 200px;
+  max-height: 12.5rem;
   overflow-y: auto;
   z-index: 1000;
 }
