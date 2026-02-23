@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Checkboxes from "./Checkboxes.jsx";
+import CountryOptions from "./CountryOptions.jsx";
 
 export default function SearchReleases() {
   const options = [
