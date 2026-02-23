@@ -15,7 +15,7 @@ export default function Genres() {
 
   return (
     <div className="genres-container">
-      <div className="release-header">Genres</div>
+      <div className="action-content-header">Genres</div>
       {genres.map((genre) => (
         <button id={genre.id} className="genre">
           {genre.name}

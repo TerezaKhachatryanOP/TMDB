@@ -1,9 +1,10 @@
-.release-dates-wrapper {
+.action-content-wrapper {
   padding: 0.875rem 1rem;
+  border-top: 0.063rem solid #21252933;
 }
 
-.release-header {
+.action-content-header {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   margin-top: 0;
 }

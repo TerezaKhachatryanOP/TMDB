@@ -7,7 +7,7 @@ export default function ShowMe() {
 
   const options = ["Everything", "Movies I Haven't Seen", "Movies I Have Seen"];
   return (
-    <div className="show-me-wrapper">
+    <div className="action-content-wrapper">
       <h1 className="show-me-header">Show Me</h1>
 
       <div className="show-me-input-wrapper">

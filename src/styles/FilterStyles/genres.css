@@ -1,5 +1,6 @@
 .genres-container {
   padding: 0.875rem 1rem;
+  border-top: 0.063rem solid #21252933;
 }
 
 .genre {

@@ -1,3 +1,5 @@
+import AdultContent from "../AdultContent/AdultContent.jsx";
+import Certifications from "../Certifications.jsx";
 import Genres from "../Genres/Genres.jsx";
 import ReleaseDates from "../ReleaseDates/ReleaseDates.jsx";
 import ShowMe from "../ShowMe/ShowMe.jsx";
@@ -8,6 +10,8 @@ export default function FilterDetails() {
       <ShowMe />
       <ReleaseDates />
       <Genres />
+      <Certifications />
+      <AdultContent />
     </div>
   );
 }
