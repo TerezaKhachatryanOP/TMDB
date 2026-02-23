@@ -17,7 +17,7 @@ export default function DateRangeFields() {
       : "";
 
   return (
-    <div style={{ display: "grid", gap: 12, maxWidth: "26.25rem", width: "100%", marginTop: "1rem" }}>
+    <div style={{ display: "grid", gap: 12, width: "100%", marginTop: "1rem" }}>
       <div style={{ display: "grid", gridTemplateColumns: "60px 1fr", alignItems: "center", gap: 12 }}>
         <div style={{ color: "#888"}}>from</div>
 

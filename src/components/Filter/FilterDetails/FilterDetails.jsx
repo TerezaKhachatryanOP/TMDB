@@ -1,6 +1,7 @@
 import AdultContent from "../AdultContent/AdultContent.jsx";
 import Certifications from "../Certifications.jsx";
 import Genres from "../Genres/Genres.jsx";
+import Keyword from "../Keyword/Keyword.jsx";
 import Language from "../Language/Language.jsx";
 import ReleaseDates from "../ReleaseDates/ReleaseDates.jsx";
 import ShowMe from "../ShowMe/ShowMe.jsx";
@@ -41,6 +42,7 @@ export default function FilterDetails() {
         defaultValue={400}
         variant="full"
       />
+      <Keyword />
     </div>
   );
 }

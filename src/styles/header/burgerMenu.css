@@ -5,7 +5,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 62rem) {
+@media (min-width: 58rem) {
   .burger-menu {
     display: none;
   }
