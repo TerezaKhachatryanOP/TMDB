@@ -17,7 +17,7 @@ export default function Genres() {
     <div className="genres-container">
       <div className="action-content-header">Genres</div>
       {genres.map((genre) => (
-        <button id={genre.id} className="genre">
+        <button key={genre.id} className="genre">
           {genre.name}
         </button>
       ))}
