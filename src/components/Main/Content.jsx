@@ -1,6 +1,7 @@
 import "../../styles/mainStyles/content.css";
 import Actions from "./Actions";
 import { FilterProvider } from "../Context/FilterProvider.jsx";
+import MovieCards from "../MovieCards/MovieCards.jsx";
 
 export default function Content() {
   return (
@@ -9,6 +10,7 @@ export default function Content() {
       <FilterProvider>
         <Actions />
       </FilterProvider>
+      <MovieCards />
     </div>
   );
 }
