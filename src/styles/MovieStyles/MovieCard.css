@@ -66,9 +66,9 @@
 }
 @media (min-width: 58rem) {
   .no-image-card {
-    padding: 2rem;
-  }
-
+    width: 100%;
+    aspect-ratio: 2 / 3;
+}
   .movie-card-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -95,16 +95,27 @@
   .percent {
     position: absolute;
     bottom: 80%;
+    left: 0.875rem;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
     display: grid;
     place-items: center;
+    background: #081c22;
+    color: #fff;
+  }
+
+  .percent canvas {
+    position: absolute;
+    inset: 0;
+  }
+
+  .percent-text {
+    position: relative;
+    z-index: 1;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #fff;
-    background: #081c22;
-    border: 0.188rem solid #21d07a;
+    line-height: 1;
   }
   .movie-desc {
     display: none;
@@ -116,6 +127,7 @@
     padding: 2rem;
   }
   .movie-card-wrapper {
+    margin-top: 3rem;
     grid-template-columns: repeat(4, 1fr);
   }
 }

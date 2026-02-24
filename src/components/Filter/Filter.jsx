@@ -4,7 +4,7 @@ import "../../styles/mainStyles/actionContainer.css";
 import FilterDetails from "./FilterDetails/FilterDetails";
 
 export default function Filter() {
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
   return (
     <div className="action-wrapper">
       <div className="mobile-action-container">
