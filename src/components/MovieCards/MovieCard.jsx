@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { GetMovies } from "./GetMovies";
 import "../../styles/MovieStyles/MovieCard.css";
 import LoadMore from "./LoadMore";
-import noImageIcn from "../../assets/no-image.png"
+import noImageIcn from "../../assets/no-image.png";
 import ScoreRing from "./ScoreRing";
 
 export default function MovieCard() {
@@ -51,16 +51,18 @@ export default function MovieCard() {
                 />
               ) : (
                 <div className="no-image-card">
-                  <img src={noImageIcn} alt="No Image"/>
+                  <img src={noImageIcn} alt="No Image" />
                 </div>
               )}
               <div className="movie-details">
-              <div className="percent">
-                <ScoreRing value={movie.vote_average} size={40} stroke={4} />
-                <span className="percent-text">
-                  {movie.vote_average ? Math.round(movie.vote_average * 10) : "NR"}
-                </span>
-              </div>
+                <div className="percent">
+                  <ScoreRing value={movie.vote_average} size={40} stroke={4} />
+                  <span className="percent-text">
+                    {movie.vote_average
+                      ? Math.round(movie.vote_average * 10)
+                      : "NR"}
+                  </span>
+                </div>
                 <h1 className="movie-title">{movie.title}</h1>
                 <p className="movie-date">{movie.release_date}</p>
                 <p className="movie-desc">

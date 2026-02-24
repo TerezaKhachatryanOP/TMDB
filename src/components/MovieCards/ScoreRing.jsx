@@ -31,8 +31,7 @@ export default function ScoreRing({ value, size = 40, stroke = 4 }) {
     ctx.arc(center, center, radius, 0, Math.PI * 2);
     ctx.stroke();
 
-    const color =
-      value >= 7 ? "#21d07a" : value >= 4 ? "#d2d531" : "#636363";
+    const color = value >= 7 ? "#21d07a" : value >= 4 ? "#d2d531" : "#636363";
 
     ctx.strokeStyle = color;
     ctx.beginPath();
