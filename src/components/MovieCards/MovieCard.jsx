@@ -1,38 +1,61 @@
 import { useEffect, useState } from "react";
 import { GetMovies } from "./GetMovies";
 import "../../styles/MovieStyles/MovieCard.css";
+import LoadMore from "./LoadMore";
 
 export default function MovieCard() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchMoves() {
       const data = await GetMovies();
-      setMovies(data.results);
+      setMovies(data.results.slice(0, 10));
     }
     fetchMoves();
   }, []);
 
   const IMG_BASE = "https://image.tmdb.org/t/p/w500";
 
+  const handleClick = async () => {
+    setLoading(true);
+
+    const start = Date.now();
+    const data = await GetMovies();
+    setMovies(data.results);
+
+    const elapsed = Date.now() - start;
+    const minTime = 1000;
+
+    if (elapsed < minTime) {
+      await new Promise((res) => setTimeout(res, minTime - elapsed));
+    }
+
+    setLoading(false);
+  };
+
   return (
-    <div className="movie-card-wrapper">
-      {movies.map((movie) => (
-        <div className="movie-card" key={movie.id}>
-          {movie.backdrop_path && (
-            <img
-              className="movie-img"
-              src={`${IMG_BASE}${movie.backdrop_path}`}
-              alt="Movie Avatar"
-            />
-          )}
-          <div className="movie-details">
-            <h1 className="movie-title">{movie.title}</h1>
-            <p className="movie-date">{movie.release_date}</p>
-            <p className="movie-desc">{movie.overview}</p>
+    <>
+      {loading && <div className="top-loader" />}
+      <div className="movie-card-wrapper">
+        {movies.map((movie) => (
+          <div className="movie-card" key={movie.id}>
+            {movie.backdrop_path && (
+              <img
+                className="movie-img"
+                src={`${IMG_BASE}${movie.backdrop_path}`}
+                alt="Movie Avatar"
+              />
+            )}
+            <div className="movie-details">
+              <h1 className="movie-title">{movie.title}</h1>
+              <p className="movie-date">{movie.release_date}</p>
+              <p className="movie-desc">{movie.overview}</p>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+        <LoadMore handleClick={handleClick} />
+      </div>
+    </>
   );
 }
