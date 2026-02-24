@@ -3,12 +3,35 @@ import "../../styles/header/header.css";
 import BurgerMenu from "./BurgerMenu";
 import MobileMenu from "../Mobile/MobileMenu";
 import { NavContext } from "../Context/NavContext";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavSearch from "../Search/NavSearch";
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showNavSearch, setShowNavSearch] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY <= 0) {
+        setShowHeader(false);
+        lastScrollY.current = currentY;
+        return;
+      }
+      const scrollingUp = currentY < lastScrollY.current;
+      if (scrollingUp) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     {
@@ -38,7 +61,7 @@ export default function Header() {
 
   return (
     <NavContext.Provider value={navItems}>
-      <div className="header-container">
+      <div className={`header-container ${showHeader ? "header-fixed" : ""}`}>
         <BurgerMenu
           showMobileMenu={showMobileMenu}
           setShowMobileMenu={setShowMobileMenu}
