@@ -1,5 +1,5 @@
-import calendarIcn from "../../../assets/calendar.svg"
-import "../../../styles/FilterStyles/dataField.css"
+import calendarIcn from "../../../assets/calendar.svg";
+import "../../../styles/FilterStyles/dataField.css";
 export default function DateField({ value, onOpen }) {
   return (
     <div style={{ position: "relative", width: "100%" }}>
@@ -39,8 +39,8 @@ export default function DateField({ value, onOpen }) {
           borderRadius: "0 6px 6px 0",
         }}
       >
-    <img src={calendarIcn} alt="calendar icon" className="calendar-icon"/>
-    </button>
+        <img src={calendarIcn} alt="calendar icon" className="calendar-icon" />
+      </button>
     </div>
   );
 }

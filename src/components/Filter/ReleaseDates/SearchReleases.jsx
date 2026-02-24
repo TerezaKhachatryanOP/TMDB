@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Checkboxes from "./Checkboxes.jsx";
 import CountryOptions from "./CountryOptions.jsx";
+import { useFilter } from "../../Context/FilterProvider.jsx";
 
 export default function SearchReleases() {
+  const { setIsFilterDirty } = useFilter();
+
   const options = [
     "Search all releases?",
     "Search all countries?",
@@ -57,14 +60,20 @@ export default function SearchReleases() {
           name="search"
           value={option}
           checked={selected.includes(option)}
-          onChange={() => handleChange(option)}
+          onChange={() => {
+            handleChange(option);
+            setIsFilterDirty(true);
+          }}
         />
       ))}
 
       <CountryOptions
         show={showCountries}
         selectedCountry={selectedCountry}
-        onSelect={(country) => setSelectedCountry(country)}
+        onSelect={(country) => {
+          setSelectedCountry(country);
+          setIsFilterDirty(true);
+        }}
       />
     </div>
   );

@@ -1,13 +1,20 @@
+import { useState } from "react";
 import Filter from "../Filter/Filter.jsx";
 import MainSearch from "./MainSearch";
 import Sort from "./Sort";
+import { useFilter } from "../Context/FilterProvider.jsx";
 
 export default function Actions() {
+  const [sortedValue, setSortedValue] = useState(null);
+  const { isFilterDirty } = useFilter();
+
+  const isSearchEnabled = sortedValue !== null || isFilterDirty;
+
   return (
     <div>
-      <Sort />
+      <Sort onChange={setSortedValue} />
       <Filter />
-      <MainSearch />
+      <MainSearch isSearchEnabled={!isSearchEnabled} />
     </div>
   );
 }

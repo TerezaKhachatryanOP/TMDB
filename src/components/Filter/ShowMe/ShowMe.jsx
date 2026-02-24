@@ -1,11 +1,14 @@
 import { useState } from "react";
 import ShowInputs from "./ShowFilterInputs.jsx";
 import "../../../styles/FilterStyles/ShowMe.css";
+import { useFilter } from "../../Context/FilterProvider.jsx";
 
 export default function ShowMe() {
   const [selected, setSelected] = useState("Everything");
+  const { setIsFilterDirty } = useFilter();
 
   const options = ["Everything", "Movies I Haven't Seen", "Movies I Have Seen"];
+
   return (
     <div className="action-content-wrapper">
       <h1 className="show-me-header">Show Me</h1>
@@ -17,7 +20,10 @@ export default function ShowMe() {
             name="showMe"
             value={option}
             checked={selected === option}
-            onChange={(e) => setSelected(e.target.value)}
+            onChange={(e) => {
+              setSelected(e.target.value);
+              setIsFilterDirty(true);
+            }}
           />
         ))}
       </div>

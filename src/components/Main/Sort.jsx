@@ -13,7 +13,11 @@ const sortOptions = [
   { name: "Title (A-Z)", id: 7 },
   { name: "Title (Z-A)", id: 8 },
 ];
-export default function Sort() {
+export default function Sort({ onChange }) {
+  const handleChange = (e) => {
+    onChange(e.target.value);
+  };
+
   const [showDetails, setShowDetails] = useState(false);
   return (
     <div className="action-wrapper">
@@ -35,7 +39,9 @@ export default function Sort() {
           />
         )}
       </div>
-      {showDetails && <SortDetails sortOptions={sortOptions} />}
+      {showDetails && (
+        <SortDetails sortOptions={sortOptions} handleChange={handleChange} />
+      )}
     </div>
   );
 }
