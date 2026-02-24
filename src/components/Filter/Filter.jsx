@@ -3,7 +3,7 @@ import arrowIcon from "../../assets/arrow.png";
 import "../../styles/mainStyles/actionContainer.css";
 import FilterDetails from "./FilterDetails/FilterDetails";
 
-export default function Filter() {
+export default function Filter({ selectedGenres, toggleGenre }) {
   const [showDetails, setShowDetails] = useState(true);
   return (
     <div className="action-wrapper">
@@ -25,7 +25,12 @@ export default function Filter() {
           />
         )}
       </div>
-      {showDetails && <FilterDetails />}
+      {showDetails && (
+        <FilterDetails
+          selectedGenres={selectedGenres}
+          toggleGenre={toggleGenre}
+        />
+      )}
     </div>
   );
 }

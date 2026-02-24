@@ -5,7 +5,7 @@ import LoadMore from "./LoadMore";
 import noImageIcn from "../../assets/no-image.png";
 import ScoreRing from "./ScoreRing";
 
-export default function MovieCard() {
+export default function MovieCard({ selectedGenres = [] }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -36,12 +36,16 @@ export default function MovieCard() {
     setLoading(false);
   };
 
+    const filteredMovies = selectedGenres.length
+    ? movies.filter((m) => selectedGenres.some((id) => m.genre_ids.includes(id)))
+    : movies;
+
   return (
     <>
       {loading && <div className="top-loader" />}
       <div>
         <div className="movie-card-wrapper">
-          {movies.map((movie) => (
+          {filteredMovies.map((movie) => (
             <div className="movie-card" key={movie.id}>
               {movie.backdrop_path ? (
                 <img

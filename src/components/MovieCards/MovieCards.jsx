@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
 
-export default function MovieCards() {
-  return <MovieCard />;
+export default function MovieCards({ selectedGenres }) {
+  return <MovieCard selectedGenres={selectedGenres}/>;
 }

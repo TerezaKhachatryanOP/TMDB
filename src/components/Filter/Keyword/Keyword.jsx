@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../../styles/FilterStyles/keyword.css";
 import { filterKeyword } from "./filterKeyword";
+import { useFilter } from "../../Context/FilterProvider";
 
 export default function Keyword() {
   const [query, setQuery] = useState("");
   const [keyword, setKeyword] = useState([]);
+  const { setIsFilterDirty } = useFilter();
 
   useEffect(() => {
     if (!query.trim()) {
@@ -26,7 +28,10 @@ export default function Keyword() {
         type="text"
         placeholder="Filter by keywords..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setIsFilterDirty(true);
+        }}
       />
       {keyword.length > 0 && (
         <div className="keyword-dropdown">

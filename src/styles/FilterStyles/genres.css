@@ -19,3 +19,8 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.genre.active {
+  background: #01b4e4;
+  color: white;
+}

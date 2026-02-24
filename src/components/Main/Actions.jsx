@@ -4,7 +4,7 @@ import MainSearch from "./MainSearch";
 import Sort from "./Sort";
 import { useFilter } from "../Context/FilterProvider.jsx";
 
-export default function Actions() {
+export default function Actions({ selectedGenres, toggleGenre }) {
   const [sortedValue, setSortedValue] = useState(null);
   const { isFilterDirty } = useFilter();
 
@@ -13,7 +13,7 @@ export default function Actions() {
   return (
     <div>
       <Sort onChange={setSortedValue} />
-      <Filter />
+      <Filter selectedGenres={selectedGenres} toggleGenre={toggleGenre} />
       <MainSearch isSearchEnabled={!isSearchEnabled} />
     </div>
   );

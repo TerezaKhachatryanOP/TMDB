@@ -7,12 +7,12 @@ import ReleaseDates from "../ReleaseDates/ReleaseDates.jsx";
 import ShowMe from "../ShowMe/ShowMe.jsx";
 import Slider from "../Slider/UserCoreSlider.jsx";
 
-export default function FilterDetails() {
+export default function FilterDetails({ selectedGenres, toggleGenre }) {
   return (
     <div className="filter-details">
       <ShowMe />
       <ReleaseDates />
-      <Genres />
+      <Genres selectedGenres={selectedGenres} toggleGenre={toggleGenre} />
       <Certifications />
       <AdultContent />
       <Language />
