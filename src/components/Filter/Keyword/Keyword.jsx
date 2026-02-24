@@ -6,20 +6,24 @@ import { useFilter } from "../../Context/FilterProvider";
 export default function Keyword() {
   const [query, setQuery] = useState("");
   const [keyword, setKeyword] = useState([]);
-  const { setIsFilterDirty } = useFilter();
+  const { setIsFilterDirty, setKeywordText } = useFilter();
 
   useEffect(() => {
+    setKeywordText(query);
+
     if (!query.trim()) {
       setKeyword([]);
       return;
     }
+
     const delay = setTimeout(async () => {
       const data = await filterKeyword(query);
       setKeyword(data);
     }, 500);
 
     return () => clearTimeout(delay);
-  }, [query]);
+  }, [query, setKeywordText]);
+
   return (
     <div className="action-content-wrapper">
       <h1 className="action-content-header">Keywords</h1>
@@ -39,7 +43,10 @@ export default function Keyword() {
             <div
               key={word.id}
               className="keyword-item"
-              onClick={() => setQuery(word.name)}
+              onClick={() => {
+                setQuery(word.name);
+                setIsFilterDirty(true);
+              }}
             >
               {word.name}
             </div>

@@ -4,9 +4,10 @@ const FilterContext = createContext(null);
 
 export function FilterProvider({ children }) {
   const [isFilterDirty, setIsFilterDirty] = useState(false);
+  const [keywordText, setKeywordText] = useState("");
 
   return (
-    <FilterContext.Provider value={{ isFilterDirty, setIsFilterDirty }}>
+    <FilterContext.Provider value={{ isFilterDirty, setIsFilterDirty, keywordText, setKeywordText}}>
       {children}
     </FilterContext.Provider>
   );

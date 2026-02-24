@@ -4,10 +4,12 @@ import "../../styles/MovieStyles/MovieCard.css";
 import LoadMore from "./LoadMore";
 import noImageIcn from "../../assets/no-image.png";
 import ScoreRing from "./ScoreRing";
+import { useFilter } from "../Context/FilterProvider";
 
 export default function MovieCard({ selectedGenres = [] }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { keywordText } = useFilter();
 
   useEffect(() => {
     async function fetchMoves() {
@@ -36,9 +38,20 @@ export default function MovieCard({ selectedGenres = [] }) {
     setLoading(false);
   };
 
-    const filteredMovies = selectedGenres.length
-    ? movies.filter((m) => selectedGenres.some((id) => m.genre_ids.includes(id)))
-    : movies;
+  const q = (keywordText || "").trim().toLowerCase();
+
+  const filteredMovies = movies.filter((m) => {
+    const genreOk =
+      !selectedGenres.length ||
+      selectedGenres.some((id) => m.genre_ids.includes(id));
+
+    const textOk =
+      !q ||
+      (m.title || "").toLowerCase().includes(q) ||
+      (m.overview || "").toLowerCase().includes(q);
+
+    return genreOk && textOk;
+  });
 
   return (
     <>

@@ -13,14 +13,14 @@ export default function Content() {
     );
   };
   return (
+    <FilterProvider>
     <div className="content-wrapper">
       <div>
         <h1 className="content-header">Popular Movies</h1>
-        <FilterProvider>
           <Actions selectedGenres={selectedGenres} toggleGenre={toggleGenre} />
-        </FilterProvider>
       </div>
-      <MovieCards selectedGenres={selectedGenres} />
+        <MovieCards selectedGenres={selectedGenres} />
     </div>
+    </FilterProvider>
   );
 }
