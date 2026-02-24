@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { GetMovies } from "./GetMovies";
 import "../../styles/MovieStyles/MovieCard.css";
 import LoadMore from "./LoadMore";
+import noImageIcn from "../../assets/no-image.png"
 
 export default function MovieCard() {
   const [movies, setMovies] = useState([]);
@@ -38,32 +39,51 @@ export default function MovieCard() {
     <>
       {loading && <div className="top-loader" />}
       <div>
-      <div className="movie-card-wrapper">
-        {movies.map((movie) => (
-          <div className="movie-card" key={movie.id}>
-            {movie.backdrop_path && (
-              <img
-                className="movie-img"
-                src={`${IMG_BASE}${movie.backdrop_path}`}
-                alt="Movie Avatar"
-              />
-            )}
-            <div className="movie-details">
-              <h1 className="movie-title">{movie.title}</h1>
-              <p className="movie-date">{movie.release_date}</p>
-              <p className="movie-desc">
-                {movie.overview
-                  ? movie.overview.split(" ").slice(0, 25).join(" ") +
-                    (movie.overview.split(" ").length > 25 ? "..." : "")
-                  : ""}
-              </p>
+        <div className="movie-card-wrapper">
+          {movies.map((movie) => (
+            <div className="movie-card" key={movie.id}>
+              {movie.backdrop_path ? (
+                <img
+                  className="movie-img"
+                  src={`${IMG_BASE}${movie.backdrop_path}`}
+                  alt="Movie Image"
+                />
+              ) : (
+                <div className="no-image-card">
+                  <img src={noImageIcn} alt="No Image"/>
+                </div>
+              )}
+              <div className="movie-details">
+                <div
+                  className="percent"
+                  style={{
+                    borderColor:
+                      movie.vote_average >= 7
+                        ? "#21d07a"
+                        : movie.vote_average >= 4
+                          ? "#d2d531"
+                          : "#636363",
+                  }}
+                >
+                  {movie.vote_average
+                    ? `${Math.round(movie.vote_average * 10)}`
+                    : "NR"}
+                </div>
+                <h1 className="movie-title">{movie.title}</h1>
+                <p className="movie-date">{movie.release_date}</p>
+                <p className="movie-desc">
+                  {movie.overview
+                    ? movie.overview.split(" ").slice(0, 25).join(" ") +
+                      (movie.overview.split(" ").length > 25 ? "..." : "")
+                    : ""}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
         <LoadMore handleClick={handleClick} />
-        </div>
+      </div>
     </>
   );
 }
