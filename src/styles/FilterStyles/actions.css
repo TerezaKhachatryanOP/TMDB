@@ -1,0 +1,15 @@
+.big-bottom-button {
+  cursor: pointer;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  background-color: #01b4e4;
+  color: white;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+}
