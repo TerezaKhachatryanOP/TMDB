@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DateField from "./DateFiels";
 import { useFilter } from "../../Context/FilterProvider";
+import "../../../styles/FilterStyles/DateRangeFields.css"
 
 export default function DateRangeFields() {
   const { setIsFilterDirty } = useFilter();
@@ -16,16 +17,9 @@ export default function DateRangeFields() {
     d ? `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}` : "";
 
   return (
-    <div style={{ display: "grid", gap: 12, width: "100%", marginTop: "1rem" }}>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "60px 1fr",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <div style={{ color: "#888" }}>from</div>
+    <div className="date-range-fields">
+      <div className="date-range-fields-container">
+        <div className="date-time">from</div>
 
         <DatePicker
           ref={fromRef}
@@ -49,12 +43,12 @@ export default function DateRangeFields() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "60px 1fr",
+          gridTemplateColumns: "3.75rem 1fr",
           alignItems: "center",
           gap: 12,
         }}
       >
-        <div style={{ color: "#888", fontSize: 14 }}>to</div>
+        <div className="date-time">to</div>
 
         <DatePicker
           ref={toRef}

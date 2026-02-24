@@ -1,0 +1,18 @@
+.date-range-fields {
+    display: grid;
+    gap: 0.75rem;     
+    margin-top: 1rem;
+}
+
+.date-range-fields-container {
+  display: grid;
+  grid-template-columns: 3.75rem 1fr;
+  align-items: center;
+  gap: 0.75rem; 
+}
+
+.date-time {
+    color: #888;
+    font-size: 0.875rem;
+    line-height: 1;
+}

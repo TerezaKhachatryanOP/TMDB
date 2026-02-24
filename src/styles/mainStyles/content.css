@@ -6,3 +6,11 @@
   margin-top: 0;
   font-size: 1.6rem;
 }
+
+@media (min-width: 58rem) {
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 25rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+}

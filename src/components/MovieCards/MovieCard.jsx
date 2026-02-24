@@ -37,6 +37,7 @@ export default function MovieCard() {
   return (
     <>
       {loading && <div className="top-loader" />}
+      <div>
       <div className="movie-card-wrapper">
         {movies.map((movie) => (
           <div className="movie-card" key={movie.id}>
@@ -50,12 +51,19 @@ export default function MovieCard() {
             <div className="movie-details">
               <h1 className="movie-title">{movie.title}</h1>
               <p className="movie-date">{movie.release_date}</p>
-              <p className="movie-desc">{movie.overview}</p>
+              <p className="movie-desc">
+                {movie.overview
+                  ? movie.overview.split(" ").slice(0, 25).join(" ") +
+                    (movie.overview.split(" ").length > 25 ? "..." : "")
+                  : ""}
+              </p>
             </div>
           </div>
         ))}
-        <LoadMore handleClick={handleClick} />
       </div>
+
+        <LoadMore handleClick={handleClick} />
+        </div>
     </>
   );
 }

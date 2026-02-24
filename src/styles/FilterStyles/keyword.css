@@ -1,5 +1,5 @@
 .keyword-input{
-  border: 1px solid #21252933;
+  border: 0.063rem solid #21252933;
   border-radius: 0.375rem;
   width: 100%;
   outline: none;
@@ -7,7 +7,7 @@
 }
 
 .keyword-dropdown {
-  border: 1px solid #21252933;
+  border: 0.063rem solid #21252933;
   top: 95%;
   left: 0;
   width: 100%;
